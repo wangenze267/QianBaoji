@@ -1,0 +1,116 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.app {
+  min-height: 100vh;
+  background-color: #f9f7f2;
+}
+
+.total-assets {
+  margin: 16px;
+  padding: 24px;
+  background: linear-gradient(135deg, #DAA520, #FFD700);
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+}
+
+.wallet-icon {
+  font-size: 32px;
+}
+
+.amount {
+  flex: 1;
+}
+
+.amount .label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.amount .value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.asset-list {
+  margin: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.asset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.asset-amount {
+  font-weight: 500;
+  color: #DAA520;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 120px;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+  background: linear-gradient(135deg, #DAA520, #FFD700);
+  color: white;
+  border: none;
+}
+
+.add-button:hover {
+  background: linear-gradient(135deg, #B8860B, #FFD700);
+  border: none;
+}
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
