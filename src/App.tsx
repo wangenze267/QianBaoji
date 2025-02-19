@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { Button, Dialog, Form, Input, List, NavBar, ImageUploader, Toast } from 'antd-mobile'
-import { WalletOutlined, PlusOutlined, GoldOutlined } from '@ant-design/icons'
+import { WalletOutlined, PlusOutlined, GoldOutlined, ShareAltOutlined } from '@ant-design/icons'
 import html2canvas from 'html2canvas'
 import { createRoot } from 'react-dom/client'
 import './App.css'
