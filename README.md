@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# 钱宝记 - 资产管理助手
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+钱宝记是一个简洁易用的个人资产管理工具，帮助用户轻松记录和管理各类资产。
 
-Currently, two official plugins are available:
+## 主要功能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. 资产管理
+- 添加、编辑各类资产
+- 支持自定义资产名称和金额
+- 提供丰富的预设图标（💰钱袋、💵钞票、💳银行卡等）
+- 支持上传自定义资产图标
 
-## Expanding the ESLint configuration
+### 2. 资产统计
+- 实时统计总资产金额
+- 清晰展示各项资产明细
+- 金额自动千分位格式化显示
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. 资产卡片分享
+- 一键生成精美的资产卡片
+- 支持将资产卡片保存为图片
+- 便捷分享功能
 
-- Configure the top-level `parserOptions` property like this:
+## 技术特点
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- 基于 React + TypeScript 开发
+- 使用 Vite 作为构建工具
+- 采用 Ant Design Mobile 组件库
+- 响应式设计，完美适配移动端
+- 优雅的金色主题设计
+- 支持自定义图标上传
+
+## 快速开始
+
+### 安装依赖
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 开发模式
+```bash
+npm run dev
 ```
+
+### 构建项目
+```bash
+npm run build
+```
+
+## 技术栈
+
+- React 18
+- TypeScript
+- Vite 4
+- Ant Design Mobile
+- html2canvas（用于生成分享卡片）
+
+## 项目特色
+
+1. **简洁直观的界面设计**
+   - 金色主题突出财富属性
+   - 清晰的资产列表展示
+   - 醒目的总资产展示
+
+2. **灵活的资产管理**
+   - 支持多种预设图标
+   - 可上传自定义图标
+   - 便捷的编辑功能
+
+3. **精美的分享功能**
+   - 生成专业的资产卡片
+   - 高清图片导出
+   - 简单的分享操作
+
+## 使用说明
+
+1. 添加资产
+   - 点击底部的"添加资产"按钮
+   - 填写资产名称和金额
+   - 选择或上传资产图标
+   - 点击确定保存
+
+2. 编辑资产
+   - 点击列表中的资产项
+   - 修改相关信息
+   - 确认保存更改
+
+3. 分享资产卡片
+   - 点击顶部总资产卡片中的分享按钮
+   - 等待卡片生成
+   - 保存生成的图片
