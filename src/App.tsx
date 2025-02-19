@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Button, Dialog, Form, Input, List, NavBar, ImageUploader, Toast } from 'antd-mobile'
 import { WalletOutlined, PlusOutlined, GoldOutlined, ShareAltOutlined } from '@ant-design/icons'
 import html2canvas from 'html2canvas'
@@ -287,6 +287,17 @@ function App() {
                 onDelete={() => {
                   setCustomIcon(undefined)
                   setSelectedIcon(PRESET_ICONS[0].icon)
+                }}
+                upload={async (file) => {
+                  // 这里我们直接将文件转换为base64字符串
+                  return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onload = () => {
+                      resolve({ url: reader.result as string })
+                    }
+                    reader.onerror = reject
+                    reader.readAsDataURL(file)
+                  })
                 }}
               >
                 <Button>上传自定义图标</Button>
