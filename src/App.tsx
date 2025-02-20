@@ -79,19 +79,19 @@ function App() {
         content: '正在生成资产卡片...',
         duration: 0
       })
-
+    
       const cardContainer = document.createElement('div')
       cardContainer.style.position = 'absolute'
       cardContainer.style.top = '-9999px'
       cardContainer.style.left = '-9999px'
       document.body.appendChild(cardContainer)
-
+    
       const root = createRoot(cardContainer)
       root.render(<AssetCard totalAmount={totalAmount} />)
-
+    
       // 等待组件渲染完成
       await new Promise(resolve => setTimeout(resolve, 500))
-
+    
       const canvas = await html2canvas(cardContainer.firstChild as HTMLElement, {
         backgroundColor: null,
         scale: 2,
@@ -99,18 +99,38 @@ function App() {
         useCORS: true,
         allowTaint: true
       })
-
+    
       const imgUrl = canvas.toDataURL('image/png')
-      const link = document.createElement('a')
-      link.download = '总资产卡片.png'
-      link.href = imgUrl
-      link.click()
-
-      Toast.clear()
-      Toast.show({
-        icon: 'success',
-        content: '资产卡片已保存'
+      
+      // 创建一个模态框来显示生成的图片
+      Dialog.show({
+        title: '资产卡片已生成',
+        content: (
+          <div style={{ textAlign: 'center' }}>
+            <img 
+              src={imgUrl} 
+              alt="资产卡片" 
+              style={{ 
+                width: '100%', 
+                maxWidth: '300px', 
+                marginBottom: '12px' 
+              }} 
+            />
+            <div style={{ fontSize: '14px', color: '#666' }}>
+              长按图片可保存到相册
+            </div>
+          </div>
+        ),
+        closeOnAction: true,
+        actions: [
+          {
+            key: 'close',
+            text: '关闭',
+          },
+        ],
       })
+    
+      Toast.clear()
     } catch (error) {
       console.error('生成资产卡片失败:', error)
       Toast.clear()
@@ -227,10 +247,23 @@ function App() {
                     setCustomIcon(undefined)
                     setSelectedIcon(PRESET_ICONS[0].icon)
                   }}
+                  style={{
+                    color: '#DAA520',
+                    borderColor: '#DAA520',
+                    background: 'transparent'
+                  }}
                 >
                   取消
                 </Button>
-                <Button block type="submit" color="primary">
+                <Button 
+                  block 
+                  type="submit" 
+                  style={{
+                    background: 'linear-gradient(135deg, #DAA520, #FFD700)',
+                    border: 'none',
+                    color: 'white'
+                  }}
+                >
                   确定
                 </Button>
               </div>
