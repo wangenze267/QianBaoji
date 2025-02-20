@@ -25,7 +25,10 @@ interface Asset {
 
 function App() {
   const [form] = Form.useForm()
-  const [assets, setAssets] = useState<Asset[]>([])
+  const [assets, setAssets] = useState<Asset[]>(() => {
+    const savedAssets = localStorage.getItem('assets')
+    return savedAssets ? JSON.parse(savedAssets) : []
+  })
   const [showAddDialog, setShowAddDialog] = useState(false)
   const [editingAsset, setEditingAsset] = useState<Asset | null>(null)
 
@@ -156,11 +159,15 @@ function App() {
       customIcon: customIcon
     }
   
+    let newAssets: Asset[]
     if (editingAsset) {
-      setAssets(assets.map(asset => asset.id === editingAsset.id ? newAsset : asset))
+      newAssets = assets.map(asset => asset.id === editingAsset.id ? newAsset : asset)
     } else {
-      setAssets([...assets, newAsset])
+      newAssets = [...assets, newAsset]
     }
+
+    setAssets(newAssets)
+    localStorage.setItem('assets', JSON.stringify(newAssets))
   
     setShowAddDialog(false)
     setEditingAsset(null)
