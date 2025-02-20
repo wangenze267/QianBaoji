@@ -24,6 +24,7 @@ interface Asset {
 }
 
 function App() {
+  const [form] = Form.useForm()
   const [assets, setAssets] = useState<Asset[]>([])
   const [showAddDialog, setShowAddDialog] = useState(false)
   const [editingAsset, setEditingAsset] = useState<Asset | null>(null)
@@ -268,6 +269,7 @@ function App() {
                 </Button>
               </div>
             }
+            form={form}
           >
             <Form.Item
               name="name"
@@ -338,7 +340,13 @@ function App() {
             </Form.Item>
           </Form>
         }
-        onClose={() => setShowAddDialog(false)}
+        onClose={() => {
+          setShowAddDialog(false)
+          setEditingAsset(null)
+          setCustomIcon(undefined)
+          setSelectedIcon(PRESET_ICONS[0].icon)
+          form.resetFields()
+        }}
       />
     </div>
   )

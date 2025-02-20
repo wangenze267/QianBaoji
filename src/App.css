@@ -21,7 +21,7 @@
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
-  }
+  }  
   to {
     transform: rotate(360deg);
   }
@@ -43,6 +43,7 @@
 .app {
   min-height: 100vh;
   background-color: #f9f7f2;
+  padding: 0 16px;
 }
 
 .total-assets {
@@ -79,7 +80,7 @@
 .asset-list {
   margin: 16px 0;
   background: white;
-  border-radius: 0;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
@@ -100,16 +101,12 @@
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 120px;
-  max-width: calc(100% - 32px);
-  border-radius: 24px;
-  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+  padding: 8px 24px;
   background: linear-gradient(135deg, #DAA520, #FFD700);
-  color: white;
   border: none;
-  z-index: 100;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 .add-button:hover {
   background: linear-gradient(135deg, #B8860B, #FFD700);
   border: none;
